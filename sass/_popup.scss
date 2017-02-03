@@ -1,0 +1,36 @@
+.content {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  min-height: 100%;
+  transition: width .3s;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.content--hidden {
+  width: 0;
+}
+
+.content__inner {
+  padding: 3em;
+  box-sizing: border-box;;
+}
+
+.content__header {
+  padding: 0 3em;
+}
+
+.content__close-button {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  svg {
+    width: 2em;
+    height: 2em;
+  }
+}

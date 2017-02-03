@@ -1,8 +1,284 @@
-@import "../node_modules/bootstrap/dist/css/bootstrap";
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #f0f;
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab:700');
+@import "../node_modules/normalize-scss/sass/normalize";
+
+@include normalize();
+
+$font-stack-default: "Roboto", Helvetica, sans-serif;
+$font-stack-headings: "Roboto Slab", "Roboto", Helvetica, sans-serif;
+$font-stack-sub: "Roboto Condensed", "Roboto", Helvetica, sans-serif;
+
+$avatar-size: 6.25em;
+$stroke-width: 0.15em;
+
+$color-primary: #454849;
+
+$color-Liberal: #cf2a24;
+$color-Polo: #f0dc00;
+$color-OpcionCiudadana: #bb9c3c;
+$color-UnidadNacional: #f08800;
+$color-AlianzaVerde: #03a855;
+$color-CentroDemocratico: #4ad4ed;
+$color-ASI: #a8a8a8;
+$color-CambioRadical: #7e00ff;
+$color-Conservador: #012bb3;
+$color-Mira: #001865;
+$color-Mais: #d40096;
+$color-Sindefinir: #ccc;
+
+.color--Liberal {
+  color: $color-Liberal
+}
+
+.color--Polo {
+  color: $color-Polo
+}
+
+.color--OpcionCiudadana {
+  color: $color-OpcionCiudadana
+}
+
+.color--UnidadNacional {
+  color: $color-UnidadNacional
+}
+
+.color--AlianzaVerde {
+  color: $color-AlianzaVerde
+}
+
+.color--CentroDemocrático {
+  color: $color-CentroDemocratico
+}
+
+.color--ASI {
+  color: $color-ASI
+}
+
+.color--CambioRadical {
+  color: $color-CambioRadical
+}
+
+.color--Conservador {
+  color: $color-Conservador
+}
+
+.color--Mira {
+  color: $color-Mira
+}
+
+.color--Mais {
+  color: $color-Mais
+}
+
+.color--Sindefinir {
+  color: $color-Sindefinir
+}
 
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+  font: 100% $font-stack-default;
+  color: $color-primary;
 }
+
+figure {
+  margin: 0;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.container {
+  width: 90%;
+  max-width: 80em;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container--open {
+  .row__column--title {
+    flex-basis: 20% !important;
+    max-width: 20% !important;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  float: none;
+  @include clearfix;
+}
+
+.row--line-below {
+  border-bottom: $stroke-width solid $color-primary;
+}
+
+.row__column {
+  flex: 1;
+  float: left;
+  min-height: 1px;
+  transition: max-width .3s, opacity .3s;
+  &.hover {
+    background-color: rgba(200, 200, 200, .5);
+    cursor: pointer;
+  }
+}
+
+.col-count--4 {
+  .row__column {
+    flex-basis: 20%;
+    max-width: 20%;
+  }
+}
+
+.col-count--8 {
+  .row__column {
+    flex-basis: 11.1111%;
+    max-width: 11.1111%;
+  }
+}
+
+.row__column--open {
+  max-width: 20% !important;
+  background-color: rgba(200, 200, 200, .5);
+}
+
+.row__column--closed {
+  max-width: 0 !important;
+  opacity: 0;
+  overflow-x: hidden;
+}
+
+.row__title {
+  font-family: $font-stack-headings;
+  margin-top: 1.5em;
+}
+
+.person {
+  text-align: center;
+  padding-top: 1em;
+}
+
+.person--width-arrow {
+  position: relative;
+  padding-bottom: 4em;
+  &::after {
+    content: "";
+    width: 1em;
+    height: 1em;
+    display: block;
+    margin: 2em auto;
+    background: url('../images/icons/arrow-down.svg') no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.person--small {
+  padding-top: 0;
+  .person__avatar {
+    img {
+      width: $avatar-size - 1.25;
+      height: $avatar-size - 1.25;
+    }
+  }
+}
+
+.person__avatar {
+  img {
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: $avatar-size;
+  }
+}
+
+.person__name {
+  font-family: $font-stack-headings;
+  margin-bottom: 0;
+}
+
+.padrino__function {
+  margin-top: 0.2em;
+}
+
+.column--line-center {
+  position: relative;
+  &:before {
+    content: "";
+    width: $stroke-width;
+    height: calc(100% + 4em);
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    background-color: $color-primary;
+  }
+}
+
+.budget__circle {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(50%);
+  background-color: currentColor;
+  border-radius: 1.5em;
+}
+
+.budget__spend {
+  background-color: currentColor;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .9;
+}
+
+.destination {
+  text-align: center;
+}
+
+.destination__brand {
+  width: 5em;
+  height: 5em;
+  position: relative;
+  margin: 4em auto 0;
+  svg, img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  img {
+    width: 55%;
+  }
+}
+
+.destination__shield {
+  color: currentColor;
+  opacity: .9;
+}
+
+@import "popup";
