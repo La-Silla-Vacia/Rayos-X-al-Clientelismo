@@ -136,10 +136,44 @@ figure {
   }
 }
 
+.col-count--2 {
+  .row__column {
+    flex-basis: 33.33333%;
+    max-width: 33.333333%;
+  }
+}
+.col-count--3 {
+  .row__column {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
+
 .col-count--4 {
   .row__column {
     flex-basis: 20%;
     max-width: 20%;
+  }
+}
+
+.col-count--5 {
+  .row__column {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%;
+  }
+}
+
+.col-count--6 {
+  .row__column {
+    flex-basis: 14.2857%;
+    max-width: 14.2857%;
+  }
+}
+
+.col-count--7 {
+  .row__column {
+    flex-basis: 12.5%;
+    max-width: 12.5%;
   }
 }
 
