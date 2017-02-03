@@ -116,6 +116,7 @@ figure {
   display: flex;
   flex-wrap: wrap;
   float: none;
+  width: 100%;
   @include clearfix;
 }
 
@@ -281,4 +282,9 @@ figure {
   opacity: .9;
 }
 
+.table-layout {
+  position: relative;
+}
+
 @import "popup";
+@import "legend";

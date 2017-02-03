@@ -32,9 +32,7 @@ class popup {
   }
 
   watchCloseButton() {
-    $('#close__content').click(() => {
-      this.close();
-    });
+
   }
 
 }

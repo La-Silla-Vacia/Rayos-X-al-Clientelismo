@@ -1,19 +1,23 @@
 const $ = require('jquery');
 const Handlebars = require('handlebars');
 const Popup = require('./_popup.es6');
+const c = require('./_config.es6');
 const popup = new Popup();
 
-class Test {
+class App {
   constructor() {
     this.container = $(".container");
 
-    this.a = "Atlántico";
+    let departemento = this.findGetParameter('departemento');
+    if (!departemento) departemento = 'Bogotá';
+
+    this.a = departemento;
     this.getData((data) => this.processData(data));
   }
 
   getData(callback) {
-    const request = "http://spreadsheet.dev";
-    const path = "https://docs.google.com/spreadsheets/d/1Lz--EnGgDkIoxV0e86dhrqnx-LtZkqzIsKlQeP1ksro/pub?gid=641172671&single=true";
+    const request = c.apiURL;
+    const path = c.spreadsheetURL;
 
     $.ajax({
       url: request,
@@ -132,6 +136,11 @@ class Test {
         }
       });
     });
+
+    $('#close__content').click(() => {
+      popup.close();
+      self.hideContent();
+    });
   }
 
   showContent(ref, defaultColumnWidth) {
@@ -146,15 +155,25 @@ class Test {
   }
 
   hideContent(ref) {
-    const currentCol = $("div[data-ref=" + ref + "]");
-    const otherCol = $("div[data-ref]:not(div[data-ref=" + ref + "])");
+    const cols = $("div[data-ref]");
 
-    currentCol.removeClass('row__column--open');
-    otherCol.removeClass('row__column--closed');
+    cols.removeClass('row__column--open');
+    cols.removeClass('row__column--closed');
     this.container.removeClass('container--open');
+  }
+
+  findGetParameter(parameterName) {
+    let result = null,
+        tmp = [];
+    const items = location.search.substr(1).split("&");
+    for (let index = 0; index < items.length; index++) {
+      tmp = items[index].split("=");
+      if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  let t = new Test(0, 0);
+  let app = new App(0, 0);
 });

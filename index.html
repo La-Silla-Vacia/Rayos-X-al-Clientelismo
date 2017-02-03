@@ -8,36 +8,59 @@
 <body>
 
 <main class="container">
-  <div id="padrinos" class="row">
-    <div class="row__column">
-      <h2>La visualización en la carga...</h2>
-    </div>
+
+  <div class="legend">
+    <ul class="legend__list">
+      <li class="legend__item"><span style="background-color: #464646"></span> Sin definir</li>
+      <li class="legend__item"><span style="background-color: #f6b217"></span> Unidad Nacional</li>
+      <li class="legend__item"><span style="background-color: #904091"></span> Cambio Radical</li>
+      <li class="legend__item"><span style="background-color: #cd2843"></span> Liberal</li>
+      <li class="legend__item"><span style="background-color: #b5805d"></span> Opción Ciudadana</li>
+      <li class="legend__item"><span style="background-color: #1c7b8d"></span> Alianza Social Independiente</li>
+      <li class="legend__item"><span style="background-color: #a6d164"></span> Moviento de Integración Regional</li>
+      <li class="legend__item"><span style="background-color: #00537f"></span> Conservador</li>
+    </ul>
   </div>
 
-  <div id="cabezas" class="row"></div>
+  <div class="table-layout">
 
-  <div id="presupuests" class="row row--line-below"></div>
+    <div id="padrinos" class="row">
+      <div class="row__column">
+        <h2>La visualización en la carga...</h2>
+      </div>
+    </div>
 
-  <div id="destinations" class="row"></div>
+    <div id="cabezas" class="row"></div>
 
-  <div class="content content--hidden">
-    <header class="content__header">
-      <h2>The story</h2>
-      <button id="close__content" class="content__close-button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-          <defs><style>.a{fill:#464646;}</style></defs>
-          <path class="a" d="M17.45,6.84,12.5,11.79,7.55,6.84l-.71.71,4.95,4.95L6.84,17.45l.71.71,4.95-4.95,4.95,4.95.71-.71L13.21,12.5l4.95-4.95Z"></path>
-          <path class="a" d="M12.5,0A12.5,12.5,0,1,0,25,12.5,12.5,12.5,0,0,0,12.5,0Zm0,24A11.5,11.5,0,1,1,24,12.5,11.53,11.53,0,0,1,12.5,24Z"></path>
-        </svg>
-      </button>
-    </header>
-    <div class="content__inner"></div>
+    <div id="presupuests" class="row row--line-below"></div>
+
+    <div id="destinations" class="row"></div>
+
+    <div class="content content--hidden">
+      <header class="content__header">
+        <h2>La historia</h2>
+        <button id="close__content" class="content__close-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <defs>
+              <style>.a {
+                fill: #464646;
+              }</style>
+            </defs>
+            <path class="a"
+                  d="M17.45,6.84,12.5,11.79,7.55,6.84l-.71.71,4.95,4.95L6.84,17.45l.71.71,4.95-4.95,4.95,4.95.71-.71L13.21,12.5l4.95-4.95Z"></path>
+            <path class="a"
+                  d="M12.5,0A12.5,12.5,0,1,0,25,12.5,12.5,12.5,0,0,0,12.5,0Zm0,24A11.5,11.5,0,1,1,24,12.5,11.53,11.53,0,0,1,12.5,24Z"></path>
+          </svg>
+        </button>
+      </header>
+      <div class="content__inner"></div>
+    </div>
   </div>
 </main>
 
 <script id="padrino-template" type="text/x-handlebars-template">
   <div class="row__column row__column--title">
-    <h2 class="row__title visually-hidden">Padrino's</h2>
+    <h2 class="row__title">Padrino</h2>
   </div>
   {{#each items}}
   <div class="row__column person person--width-arrow" data-ref="{{ itterator  }}">
@@ -74,7 +97,8 @@
     <h2 class="row__title">Presupuesto <br>de inversión</h2>
   </div>
   {{#each items}}
-  <div class="row__column column--line-center budget color--{{PartidoEscaped}}" style="color: {{ k }}; min-height: {{halfBudgetWidth}}px"
+  <div class="row__column column--line-center budget color--{{PartidoEscaped}}"
+       style="color: {{ k }}; min-height: {{halfBudgetWidth}}px"
        data-ref="{{ itterator  }}">
     <div class="column__inner">
       <div class="budget__circle"></div>

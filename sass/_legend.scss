@@ -1,0 +1,27 @@
+.legend__list {
+  list-style: none;
+  line-height: 1.5;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+  @include clearfix;
+}
+
+.legend__item {
+  float: left;
+  //margin-left: 5em;
+  width: 18em;
+  span {
+    width: 1em;
+    height: 1em;
+    display: block;
+    margin-right: 1em;
+    border-radius: 1em;
+    margin-top: 0.15em;
+    float: left;
+  }
+}
