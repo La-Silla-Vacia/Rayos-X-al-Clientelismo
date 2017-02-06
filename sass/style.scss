@@ -25,7 +25,7 @@ $color-Mira: #001865;
 $color-Mais: #d40096;
 $color-Sindefinir: #ccc;
 
-$breakpoint: 64rem;
+$breakpoint: 1023px;
 
 .color--Liberal {
   color: $color-Liberal
@@ -101,103 +101,7 @@ figure {
 }
 
 @import "grid";
-
-.person {
-  text-align: center;
-  padding-top: 1em;
-}
-
-.person--width-arrow {
-  position: relative;
-  padding-bottom: 4em;
-  &::after {
-    content: "";
-    width: 1em;
-    height: 1em;
-    display: block;
-    margin: 2em auto;
-    background: url('../images/icons/arrow-down.svg') no-repeat;
-    background-size: contain;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%);
-    @media (max-width: $breakpoint) {
-      transform: rotate(-90deg) translateY(-50%);
-      left: 100%;
-      bottom: 50%;
-    }
-  }
-}
-
-.person--small {
-  padding-top: 0;
-  position: relative;
-  .person__avatar {
-    img {
-      width: $avatar-size - 1.25;
-      height: $avatar-size - 1.25;
-      @media (max-width: $breakpoint) {
-        width: 17vw;
-        height: 17vw;
-        max-width: $avatar-size - 1.25;
-        max-height: $avatar-size - 1.25;
-        margin: 0.6em 0;
-      }
-    }
-  }
-  &::after {
-    content: "";
-    width: 1em;
-    height: 1em;
-    display: none;
-    margin: 2em auto;
-    background: url('../images/icons/arrow-down.svg') no-repeat;
-    background-size: contain;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%);
-    @media (max-width: $breakpoint) {
-      transform: rotate(-90deg) translateY(-50%);
-      left: 100%;
-      bottom: 50%;
-      display: block;
-    }
-  }
-}
-
-.person__avatar {
-  img {
-    width: $avatar-size;
-    height: $avatar-size;
-    border-radius: $avatar-size;
-    @media (max-width: $breakpoint) {
-      width: 20vw;
-      height: 20vw;
-      max-width: $avatar-size;
-      max-height: $avatar-size;
-    }
-  }
-}
-
-.person__name {
-  font-family: $font-stack-headings;
-  margin-bottom: 0;
-  @media (max-width: $breakpoint) {
-    font-size: calc(.8em + 1vw);
-  }
-}
-
-.person__function {
-  margin-top: 0.2em;
-  @media (max-width: $breakpoint) {
-    min-width: 1em;
-    min-height: 1em;
-  }
-}
+@import "person";
 
 .destination__title {
   font-family: $font-stack-headings;
@@ -287,8 +191,12 @@ figure {
     width: 55%;
   }
 }
-
-@media (min-width: $breakpoint) {
+@media (max-width: $breakpoint) {
+  .destination__amound {
+    font-size: .8em;
+  }
+}
+@media (min-width: 1024px) {
   .destination__amound {
     display: block;
     position: absolute;
