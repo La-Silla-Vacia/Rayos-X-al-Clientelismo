@@ -1,53 +1,58 @@
+/* eslint-env browser */
 const $ = require('jquery');
 const Handlebars = require('handlebars');
 const Popup = require('./_popup.es6');
 const c = require('./_config.es6');
+
 const popup = new Popup();
 
 class App {
   constructor() {
-    this.container = $(".container");
+    this.container = $('.container');
+    this.requestUrl = c.apiURL;
+    this.spreadsheetPath = c.spreadsheetURL;
 
-    let departemento = this.findGetParameter('departemento');
-    if (!departemento) departemento = 'Bogotá';
+    this.departemento = App.findGetParameter('departemento');
+    if (!this.departemento) this.departemento = 'Bogotá';
 
-    this.a = departemento;
-    this.getData((data) => this.processData(data));
+    this.a = this.departemento;
+  }
+
+  start() {
+    this.getData((data) => {
+      this.processData(data);
+    });
   }
 
   getData(callback) {
-    const request = c.apiURL;
-    const path = c.spreadsheetURL;
-
     $.ajax({
-      url: request,
+      url: this.requestUrl,
       type: 'POST',
-      data: 'path=' + path,
+      data: `path=${this.spreadsheetPath}`,
       dataType: 'json',
-      success: function (data) {
+      success: (data) => {
         if (callback) callback(data);
       },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus);
-        console.log(jqXHR.responseText);
-      }
+      error: () => {
+        $('#padrinos').html('Could not get the data. Please reload your browser window.');
+      },
     });
   }
 
   processData(data) {
     const thisdata = [];
-    for (let item of data) {
 
+    for (let i = 0; i < data.length; i += 1) {
       const thisDepart = this.a.toLowerCase();
-      const newDepart = item.a.toLowerCase();
+      const newDepart = data[i].a.toLowerCase();
 
       if (thisDepart === newDepart) {
-        thisdata.push(item);
+        thisdata.push(data[i]);
       }
     }
 
     const columnCount = thisdata.length;
-    this.container.addClass("col-count--" + columnCount);
+    this.container.addClass(`col-count--${columnCount}`);
 
     this.data = thisdata;
     this.mergeData();
@@ -55,51 +60,43 @@ class App {
 
   mergeData() {
     const data = this.data;
-    let i = 0;
-    for (let item of data) {
-      i++;
+    for (let i = 0; i < data.length; i += 1) {
+      const item = data[i];
 
       item.PartidoEscaped = item.j.replace(/ /g, '');
       let budgetWidth = item.c;
       budgetWidth = budgetWidth.replace('$', '').replace('"', '');
       budgetWidth = (budgetWidth / 1000000000) * 1.5;
       if (budgetWidth < 35) budgetWidth = 35;
-      let halfBudgetWidth = budgetWidth / 2;
+      const halfBudgetWidth = budgetWidth / 2;
 
       item.BudgetWidth = budgetWidth;
       item.halfBudgetWidth = halfBudgetWidth;
 
       item.itterator = i;
 
-      if (item.f == "") item.f = "./images/avatars/undefined.svg";
-      if (item.i == "") item.i = "./images/avatars/undefined.svg";
-      // console.log(item.BudgetWidth);
-      // console.log(item.Partido);
+      if (item.f === '') item.f = './images/avatars/undefined.svg';
+      if (item.i === '') item.i = './images/avatars/undefined.svg';
     }
 
     const context = {
-      items: data
+      items: data,
     };
 
-    Handlebars.registerHelper('formatCurrency', function(value) {
-      const number = value / 1000000;
-      return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-    });
-
-    const padrinoSource = $("#padrino-template").html();
+    const padrinoSource = $('#padrino-template').html();
     const padrinoTemplate = Handlebars.compile(padrinoSource);
     // console.log(padrinoTemplate(context));
     $('#padrinos').html(padrinoTemplate(context));
 
-    const cabezasSource = $("#cabezas-template").html();
+    const cabezasSource = $('#cabezas-template').html();
     const cabezasTemplate = Handlebars.compile(cabezasSource);
     $('#cabezas').append(cabezasTemplate(context));
 
-    const presupuestsSource = $("#presupuests-template").html();
+    const presupuestsSource = $('#presupuests-template').html();
     const presupuestsTemplate = Handlebars.compile(presupuestsSource);
     $('#presupuests').append(presupuestsTemplate(context));
 
-    const destinationsSource = $("#destinations-template").html();
+    const destinationsSource = $('#destinations-template').html();
     const destinationsTemplate = Handlebars.compile(destinationsSource);
     $('#destinations').append(destinationsTemplate(context));
 
@@ -109,21 +106,21 @@ class App {
   watch() {
     const self = this;
 
-    $("div[data-ref]").each(function () {
+    $('div[data-ref]').each(function () {
       let open = false;
       const $this = $(this);
       const ref = $this.data('ref');
-      const data = self.data[ref - 1];
-      let defaultColumnWidth = $('.column__inner').width();
+      const data = self.data[ref];
+      const defaultColumnWidth = $('.column__inner').width();
 
-      const currentCol = $("div[data-ref=" + ref + "]");
+      const currentCol = $(`div[data-ref="${ref}]`);
       $this.hover(
         () => {
           currentCol.addClass('hover');
         },
         () => {
           currentCol.removeClass('hover');
-        }
+        },
       );
 
       $this.click(() => {
@@ -131,7 +128,6 @@ class App {
           open = true;
 
           self.showContent(ref, defaultColumnWidth);
-
           popup.create(data.l);
         } else {
           open = false;
@@ -150,8 +146,8 @@ class App {
   }
 
   showContent(ref, defaultColumnWidth) {
-    const currentCol = $("div[data-ref=" + ref + "]");
-    const otherCol = $("div[data-ref]:not(div[data-ref=" + ref + "])");
+    const currentCol = $(`div[data-ref=${ref}]`);
+    const otherCol = $(`div[data-ref]:not(div[data-ref=${ref}])`);
 
     currentCol.addClass('row__column--open');
     otherCol.addClass('row__column--closed');
@@ -160,26 +156,32 @@ class App {
     this.container.addClass('container--open');
   }
 
-  hideContent(ref) {
-    const cols = $("div[data-ref]");
+  hideContent() {
+    const cols = $('div[data-ref]');
 
     cols.removeClass('row__column--open');
     cols.removeClass('row__column--closed');
     this.container.removeClass('container--open');
   }
 
-  findGetParameter(parameterName) {
-    let result = null,
-        tmp = [];
-    const items = location.search.substr(1).split("&");
-    for (let index = 0; index < items.length; index++) {
-      tmp = items[index].split("=");
+  static findGetParameter(parameterName) {
+    let result = null;
+    let tmp = [];
+    const items = location.search.substr(1).split('&');
+    for (let index = 0; index < items.length; index += 1) {
+      tmp = items[index].split('=');
       if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
     }
     return result;
   }
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  let app = new App(0, 0);
+Handlebars.registerHelper('formatCurrency', (value) => {
+  const number = value / 1000000;
+  return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new App();
+  app.start();
 });

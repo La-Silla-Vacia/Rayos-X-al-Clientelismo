@@ -1,38 +1,30 @@
 const $ = require('jquery');
 const FormatText = require('./_textFormat.es6');
+
 const formatText = new FormatText();
 
 class popup {
   constructor() {
     this.open = false;
-
-    this.watchCloseButton();
+    this.contentBox = $('.content');
+    this.contentInner = $('.content__inner');
   }
 
   create(data) {
     const contentWidth = $('.container').width() * 0.6;
-
-    const contentBox = $('.content');
-    const contentInner = $('.content__inner');
     // console.
-    data = formatText.create(data);
+    const formattedText = formatText.create(data);
 
-    contentInner.css({width: contentWidth + 'px'});
-    contentInner.html(data);
-    contentBox.removeClass('content--hidden');
+    this.contentInner.css({ width: `${contentWidth}px` });
+    this.contentInner.html(formattedText);
+    this.contentBox.removeClass('content--hidden');
 
     this.open = false;
   }
 
   close() {
-    const contentBox = $('.content')
-    const contentInner = $('.content__inner');
-    contentInner.empty();
-    contentBox.addClass('content--hidden');
-  }
-
-  watchCloseButton() {
-
+    this.contentInner.empty();
+    this.contentBox.addClass('content--hidden');
   }
 
 }

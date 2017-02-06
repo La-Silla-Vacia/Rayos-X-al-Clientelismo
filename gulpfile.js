@@ -26,7 +26,7 @@ gulp.task('scripts', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return gulp.src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -41,7 +41,7 @@ gulp.task('watch', () => {
 });
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['sass'], function () {
+gulp.task('serve', ['sass'], () => {
 
   browserSync.init({
     server: "./"
