@@ -8,6 +8,10 @@
   transition: width .3s;
   overflow: hidden;
   line-height: 1.5;
+  @media (max-width: $breakpoint) {
+    width: 100%;
+    top: 24em;
+  }
 }
 
 .content--hidden {
@@ -16,11 +20,18 @@
 
 .content__inner {
   padding: 1em 3em 2em;
-  box-sizing: border-box;;
+  box-sizing: border-box;
+  @media (max-width: $breakpoint) {
+    padding: 1.5em;
+    width: 100% !important;
+  }
 }
 
 .content__header {
   padding: 0 3em;
+  @media (max-width: $breakpoint) {
+    padding: 0 1.5em;
+  }
 }
 
 .content__close-button {

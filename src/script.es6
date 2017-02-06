@@ -80,6 +80,12 @@ class App {
     const context = {
       items: data
     };
+
+    Handlebars.registerHelper('formatCurrency', function(value) {
+      const number = value / 1000000;
+      return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + " millones";
+    });
+
     const padrinoSource = $("#padrino-template").html();
     const padrinoTemplate = Handlebars.compile(padrinoSource);
     // console.log(padrinoTemplate(context));

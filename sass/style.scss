@@ -25,6 +25,8 @@ $color-Mira: #001865;
 $color-Mais: #d40096;
 $color-Sindefinir: #ccc;
 
+$breakpoint: 64rem;
+
 .color--Liberal {
   color: $color-Liberal
 }
@@ -98,107 +100,7 @@ figure {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-.container {
-  width: 90%;
-  max-width: 80em;
-  min-width: 48em;
-  margin: 0 auto;
-  position: relative;
-}
-
-.container--open {
-  .row__column--title {
-    flex-basis: 20% !important;
-    max-width: 20% !important;
-  }
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  float: none;
-  width: 100%;
-  @include clearfix;
-}
-
-.row--line-below {
-  border-bottom: $stroke-width solid $color-primary;
-}
-
-.row__column {
-  flex: 1;
-  float: left;
-  min-height: 1px;
-  transition: max-width .3s, opacity .3s;
-  &.hover {
-    background-color: rgba(200, 200, 200, .5);
-    cursor: pointer;
-  }
-}
-
-.col-count--2 {
-  .row__column {
-    flex-basis: 33.33333%;
-    max-width: 33.333333%;
-  }
-}
-.col-count--3 {
-  .row__column {
-    flex-basis: 25%;
-    max-width: 25%;
-  }
-}
-
-.col-count--4 {
-  .row__column {
-    flex-basis: 20%;
-    max-width: 20%;
-  }
-}
-
-.col-count--5 {
-  .row__column {
-    flex-basis: 16.66667%;
-    max-width: 16.66667%;
-  }
-}
-
-.col-count--6 {
-  .row__column {
-    flex-basis: 14.2857%;
-    max-width: 14.2857%;
-  }
-}
-
-.col-count--7 {
-  .row__column {
-    flex-basis: 12.5%;
-    max-width: 12.5%;
-  }
-}
-
-.col-count--8 {
-  .row__column {
-    flex-basis: 11.1111%;
-    max-width: 11.1111%;
-  }
-}
-
-.row__column--open {
-  max-width: 20% !important;
-  background-color: rgba(200, 200, 200, .5);
-}
-
-.row__column--closed {
-  max-width: 0 !important;
-  opacity: 0;
-  overflow-x: hidden;
-}
-
-.row__title {
-  font-family: $font-stack-headings;
-  margin-top: 1.5em;
-}
+@import "grid";
 
 .person {
   text-align: center;
@@ -219,16 +121,49 @@ figure {
     position: absolute;
     bottom: 0;
     left: 50%;
+    z-index: 1;
     transform: translateX(-50%);
+    @media (max-width: $breakpoint) {
+      transform: rotate(-90deg) translateY(-50%);
+      left: 100%;
+      bottom: 50%;
+    }
   }
 }
 
 .person--small {
   padding-top: 0;
+  position: relative;
   .person__avatar {
     img {
       width: $avatar-size - 1.25;
       height: $avatar-size - 1.25;
+      @media (max-width: $breakpoint) {
+        width: 17vw;
+        height: 17vw;
+        max-width: $avatar-size - 1.25;
+        max-height: $avatar-size - 1.25;
+      }
+    }
+  }
+  &::after {
+    content: "";
+    width: 1em;
+    height: 1em;
+    display: none;
+    margin: 2em auto;
+    background: url('../images/icons/arrow-down.svg') no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    @media (max-width: $breakpoint) {
+      transform: rotate(-90deg) translateY(-50%);
+      left: 100%;
+      bottom: 50%;
+      display: block;
     }
   }
 }
@@ -238,16 +173,29 @@ figure {
     width: $avatar-size;
     height: $avatar-size;
     border-radius: $avatar-size;
+    @media (max-width: $breakpoint) {
+      width: 20vw;
+      height: 20vw;
+      max-width: $avatar-size;
+      max-height: $avatar-size;
+    }
   }
 }
 
 .person__name {
   font-family: $font-stack-headings;
   margin-bottom: 0;
+  @media (max-width: $breakpoint) {
+    font-size: calc(.8em + 1vw);
+  }
 }
 
-.padrino__function {
+.person__function {
   margin-top: 0.2em;
+  @media (max-width: $breakpoint) {
+    min-width: 1em;
+    min-height: 1em;
+  }
 }
 
 .column--line-center {
@@ -262,6 +210,11 @@ figure {
     left: 0;
     right: 0;
     background-color: $color-primary;
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      height: $stroke-width;
+      bottom: 50%;
+    }
   }
 }
 
@@ -286,6 +239,9 @@ figure {
   left: 50%;
   transform: translateX(-50%);
   opacity: .9;
+  @media (max-width: $breakpoint) {
+    transform: translateX(-50%) scale(0.2);
+  }
 }
 
 .destination {
@@ -297,6 +253,15 @@ figure {
   height: 5em;
   position: relative;
   margin: 4em auto 0;
+  @media (max-width: $breakpoint) {
+    margin-top: -1em;
+    svg {
+      width: 90%;
+    }
+    img {
+      width: 45%;
+    }
+  }
   svg, img {
     max-width: 100%;
     height: auto;
@@ -315,10 +280,6 @@ figure {
 .destination__shield {
   color: currentColor;
   opacity: .9;
-}
-
-.table-layout {
-  position: relative;
 }
 
 @import "popup";
