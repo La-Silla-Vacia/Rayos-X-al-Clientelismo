@@ -198,12 +198,20 @@ figure {
   }
 }
 
+.destination__title {
+  font-family: $font-stack-headings;
+  margin-bottom: 0;
+  @media (max-width: $breakpoint) {
+    font-size: calc(.8em + 1vw);
+  }
+}
+
 .column--line-center {
   position: relative;
   &:before {
     content: "";
     width: $stroke-width;
-    height: calc(100% + 4em);
+    height: 100%;
     display: block;
     position: absolute;
     margin: 0 auto;
@@ -229,6 +237,7 @@ figure {
   transform: translateY(50%);
   background-color: currentColor;
   border-radius: 1.5em;
+  z-index: 1;
 }
 
 .budget__spend {
@@ -252,7 +261,7 @@ figure {
   width: 5em;
   height: 5em;
   position: relative;
-  margin: 4em auto 0;
+  margin: 6em auto 0;
   @media (max-width: $breakpoint) {
     margin-top: -1em;
     svg {
@@ -277,10 +286,58 @@ figure {
   }
 }
 
+@media (min-width: $breakpoint) {
+  .destination__amound {
+    display: block;
+    position: absolute;
+    top: 2.25em;
+    width: 100%;
+    font-size: 0.85em;
+    &:before, &:after {
+      content: "";
+      width: $stroke-width;
+      height: 1.2rem;
+      position: absolute;
+      display: block;
+      background-color: $color-primary;
+      top: -1.5rem;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+    }
+    &:after {
+      top: inherit;
+      bottom: 0;
+      transform: translateY(0.85rem) translateX(-50%);
+    }
+    &:first-line {
+      font-size: 1rem;
+      font-family: $font-stack-headings;
+
+    }
+  }
+  .row__column.destination {
+    position: relative;
+  }
+}
+
 .destination__shield {
   color: currentColor;
   opacity: .9;
 }
 
+#destinations .visually-hidden {
+  @media (max-width: $breakpoint) {
+    position: inherit;
+    width: auto;
+    height: auto;
+    overflow: inherit;
+    clip: inherit;
+  }
+}
+
+.loading h2 {
+  padding-left: 2rem;
+}
 @import "popup";
 @import "legend";

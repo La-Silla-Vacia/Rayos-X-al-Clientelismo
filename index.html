@@ -26,8 +26,8 @@
   <div class="table-layout">
 
     <div id="padrinos" class="row">
-      <div class="row__column">
-        <h2>La visualización en la carga...</h2>
+      <div class="row__column loading row__column--title">
+        <h2 class="row__title">La visualización en la carga...</h2>
       </div>
     </div>
 
@@ -117,7 +117,7 @@
 
 <script id="destinations-template" type="text/x-handlebars-template">
   <div class="row__column row__column--title">
-    <h2 class="row__title visually-hidden">Destinations</h2>
+    <h2 class="row__title visually-hidden">Entidad</h2>
   </div>
   {{#each items}}
   <div class="row__column destination" data-ref="{{ itterator  }}">
@@ -135,7 +135,7 @@
         <img src="{{ m }}" width="50" alt="{{ b }}">
       </figure>
       <p class="destination__title">{{b}}</p>
-      <span class="destination__amound">${{formatCurrency c}}</span>
+      <span class="destination__amound">${{formatCurrency c}}<br>millones</span>
     </div>
   </div>
   {{/each}}
