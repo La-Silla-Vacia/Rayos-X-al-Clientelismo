@@ -102,6 +102,8 @@ figure {
 
 @import "grid";
 @import "person";
+@import "content";
+@import "legend";
 
 .destination__title {
   font-family: $font-stack-headings;
@@ -109,26 +111,6 @@ figure {
   @media (max-width: $breakpoint) {
     font-size: calc(.8em + 1vw);
     margin-bottom: 0;
-  }
-}
-
-.column--line-center {
-  position: relative;
-  &:before {
-    content: "";
-    width: $stroke-width;
-    height: 100%;
-    display: block;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    background-color: $color-primary;
-    @media (max-width: $breakpoint) {
-      width: 100%;
-      height: $stroke-width;
-      bottom: 50%;
-    }
   }
 }
 
@@ -249,5 +231,3 @@ figure {
 .loading h2 {
   padding-left: 2rem;
 }
-@import "content";
-@import "legend";

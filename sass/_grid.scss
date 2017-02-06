@@ -43,13 +43,17 @@
   float: left;
   min-height: 1px;
   transition: max-width .3s, max-height .3s, padding .3s, opacity .3s;
+  cursor: pointer;
   &.hover {
     background-color: rgba(200, 200, 200, .5);
-    cursor: pointer;
     .row__column {
       background-color: rgba(200, 200, 200, .5);
     }
   }
+}
+
+.row__column--title {
+  cursor: default;
 }
 
 .col-count--2 {
@@ -156,6 +160,26 @@
 
     &#presupuests {
       display: none;
+    }
+  }
+}
+
+.column--line-center {
+  position: relative;
+  &:before {
+    content: "";
+    width: $stroke-width;
+    height: 100%;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    background-color: $color-primary;
+    @media (max-width: $breakpoint) {
+      width: 100%;
+      height: $stroke-width;
+      bottom: 50%;
     }
   }
 }
