@@ -113,7 +113,7 @@ class App {
       const data = self.data[ref];
       const defaultColumnWidth = $('.column__inner').width();
 
-      const currentCol = $(`div[data-ref="${ref}]`);
+      const currentCol = $(`div[data-ref=${ref}]`);
       $this.hover(
         () => {
           currentCol.addClass('hover');

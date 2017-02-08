@@ -120,11 +120,13 @@
 }
 
 .row__column--closed {
+  flex-basis: 0 !important;
   max-width: 0 !important;
   opacity: 0;
   overflow-x: hidden;
   @media (max-width: $breakpoint) {
     max-width: inherit !important;
+    flex-basis: inherit !important;
     height: 0 !important;
     padding: 0 !important;
   }
