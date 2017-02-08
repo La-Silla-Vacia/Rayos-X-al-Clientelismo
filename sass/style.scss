@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab:700');
 @import "../node_modules/normalize-scss/sass/normalize";
 
+body {background: yellow}
 @include normalize();
 
 $font-stack-default: "Roboto", Helvetica, sans-serif;
