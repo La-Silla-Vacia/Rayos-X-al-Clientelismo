@@ -105,6 +105,12 @@
   }
 }
 
+.column__inner {
+  @media (max-width: $breakpoint) {
+    width: inherit !important;
+  }
+}
+
 .row__column--open {
   max-width: 20% !important;
   background-color: rgba(200, 200, 200, .5);
