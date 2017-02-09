@@ -177,8 +177,13 @@ class App {
 }
 
 Handlebars.registerHelper('formatCurrency', (value) => {
-  const number = value / 1000000;
-  return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
+  if (value) {
+    console.log(value);
+    const number = value / 1000000;
+    return "$" + number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
+  } else {
+    return "Sin definir"
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
