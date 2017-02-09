@@ -178,7 +178,7 @@ class App {
 
 Handlebars.registerHelper('formatCurrency', (value) => {
   const number = value / 1000000;
-  return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
 });
 
 document.addEventListener('DOMContentLoaded', () => {

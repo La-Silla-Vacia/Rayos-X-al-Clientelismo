@@ -150,7 +150,7 @@ figure {
   width: 5em;
   height: 5em;
   position: relative;
-  margin: 6em auto 0;
+  margin: 5em auto 0;
   @media (max-width: $breakpoint) {
     margin-top: 0;
     svg {
@@ -203,7 +203,7 @@ figure {
     &:after {
       top: inherit;
       bottom: 0;
-      transform: translateY(0.85rem) translateX(-50%);
+      transform: translateY(0) translateX(-50%);
     }
     &:first-line {
       font-size: 1rem;
