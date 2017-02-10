@@ -27,7 +27,7 @@ $color-Mira: #001865;
 $color-Mais: #d40096;
 $color-Sindefinir: #ccc;
 
-$breakpoint: 1023px;
+$breakpoint: 768px;
 
 .color--Liberal {
   color: $color-Liberal
@@ -77,8 +77,12 @@ $breakpoint: 1023px;
   color: $color-Sindefinir
 }
 
+html {
+  font-size: 80%;
+}
+
 body {
-  font: 80% $font-stack-default;
+  font: 100% $font-stack-default;
   color: $color-primary;
 }
 

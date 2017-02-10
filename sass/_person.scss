@@ -37,8 +37,8 @@
       @media (max-width: $breakpoint) {
         width: 17vw;
         height: 17vw;
-        max-width: $avatar-size - 1.25;
-        max-height: $avatar-size - 1.25;
+        max-width: 4em;
+        max-height: 4em;
         margin: 0.6em 0;
       }
       @media (max-width: 26em) {
@@ -74,10 +74,8 @@
     height: $avatar-size;
     border-radius: $avatar-size;
     @media (max-width: $breakpoint) {
-      width: 20vw;
-      height: 20vw;
-      max-width: $avatar-size;
-      max-height: $avatar-size;
+      max-width: 5em;
+      max-height: 5em;
     }
   }
 }
@@ -87,7 +85,7 @@
   margin-bottom: 0;
   margin-top: 0.5em;
   @media (max-width: $breakpoint) {
-    font-size: calc(.8em + 1vw);
+    font-size: 1em;
   }
 }
 

@@ -136,7 +136,7 @@
   font-family: $font-stack-headings;
   margin-top: 1.5em;
   @media (max-width: $breakpoint) {
-    font-size: calc(1em + 1vw);
+    font-size: 1em;
   }
 }
 
@@ -159,6 +159,9 @@
       }
       &.hover {
         background-color: rgba(200, 200, 200, .5);
+      }
+      @media (max-width: $breakpoint) {
+        height: 10em;
       }
     }
     .row__column--title {

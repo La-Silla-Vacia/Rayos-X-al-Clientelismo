@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 73em;
-  margin: 0 auto 2em;
+  margin: 2em auto 2em;
   @include clearfix;
 }
 
@@ -25,5 +25,8 @@
     border-radius: 1em;
     margin-top: 0.15em;
     float: left;
+  }
+  @media (max-width: $breakpoint) {
+    font-size: .8em;
   }
 }
