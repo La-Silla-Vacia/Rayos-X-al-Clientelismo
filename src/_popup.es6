@@ -13,7 +13,9 @@ class popup {
   create(data) {
     const contentWidth = $('.container').width() * 0.6;
     // console.
-    const formattedText = formatText.create(data);
+    let formattedText = formatText.create(data);
+
+    if (!formattedText) formattedText = "<h3>No hay contenido disponible en este momento.</h3>";
 
     this.contentInner.css({ width: `${contentWidth}px` });
     this.contentInner.html(formattedText);
