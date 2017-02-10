@@ -175,6 +175,9 @@ figure {
   }
   .img--fallback {
     color: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: inherit;
   }
 }
 
