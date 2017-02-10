@@ -93,6 +93,7 @@
 
 .person__function {
   margin-top: 0.2em;
+  color: $color-secondary;
   @media (max-width: $breakpoint) {
     min-width: 1em;
     min-height: 1em;
