@@ -107,9 +107,11 @@
        style="color: {{ k }}; min-height: {{halfBudgetWidth}}px"
        data-ref="{{ itterator  }}">
     <div class="column__inner">
+      {{#if c}}
       <div class="budget__circle"></div>
       <div class="budget__spend"
            style="width: {{BudgetWidth}}px; height: {{halfBudgetWidth}}px; border-radius: {{BudgetWidth}}px {{BudgetWidth}}px 0 0;"></div>
+      {{/if}}
     </div>
   </div>
   {{/each}}
