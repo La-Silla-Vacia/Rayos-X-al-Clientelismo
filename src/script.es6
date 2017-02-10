@@ -75,8 +75,8 @@ class App {
 
       item.itterator = i;
 
-      if (item.f === '') item.f = './images/avatars/undefined.svg';
-      if (item.i === '') item.i = './images/avatars/undefined.svg';
+      if (item.f === '') item.f = './images/avatars/undefined.jpg';
+      if (item.i === '') item.i = './images/avatars/undefined.jpg';
     }
 
     const context = {
@@ -178,7 +178,6 @@ class App {
 
 Handlebars.registerHelper('formatCurrency', (value) => {
   if (value) {
-    console.log(value);
     const number = value / 1000000;
     return "$" + number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
   } else {
