@@ -155,7 +155,7 @@ figure {
   width: 5em;
   height: 5em;
   position: relative;
-  margin: 5em auto 0;
+  margin: 6em auto 0;
   @media (max-width: $breakpoint) {
     margin-top: 0;
     svg {
@@ -199,6 +199,7 @@ figure {
     top: 2.25em;
     width: 100%;
     font-size: 0.85em;
+    color: $color-secondary;
     &:before, &:after {
       content: "";
       width: $stroke-width;
@@ -214,12 +215,12 @@ figure {
     &:after {
       top: inherit;
       bottom: 0;
-      transform: translateY(0) translateX(-50%);
+      transform: translateY(8px) translateX(-50%);
     }
     &:first-line {
       font-size: 1rem;
       font-family: $font-stack-headings;
-
+      color: $color-primary;
     }
   }
   .row__column.destination {

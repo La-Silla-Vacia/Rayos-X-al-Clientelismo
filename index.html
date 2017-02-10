@@ -143,7 +143,13 @@
                 {{/if}}
             </figure>
             <p class="destination__title">{{b}}</p>
-            <span class="destination__amound">{{formatCurrency c}}</span>
+            <span class="destination__amound">
+            {{#if c}}
+            {{formatCurrency c}} <br> millones
+            {{else}}
+            Sin definir
+            {{/if}}
+            </span>
         </div>
     </div>
     {{/each}}

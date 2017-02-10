@@ -178,10 +178,10 @@ class App {
 
 Handlebars.registerHelper('formatCurrency', (value) => {
   if (value) {
-    const number = value / 1000000;
+    const number = Math.round(value / 1000000);
     return "$" + number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
   } else {
-    return "Sin definir"
+    return ""
   }
 });
 
