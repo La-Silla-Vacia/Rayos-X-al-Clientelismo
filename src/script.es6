@@ -66,7 +66,7 @@ class App {
       item.PartidoEscaped = item.j.replace(/ /g, '');
       let budgetWidth = item.c;
       budgetWidth = budgetWidth.replace('$', '').replace('"', '');
-      budgetWidth = (budgetWidth / 1000000000) * 1.5;
+      budgetWidth = (budgetWidth / 1000000000) * 1.25;
       if (budgetWidth < 35) budgetWidth = 35;
       const halfBudgetWidth = budgetWidth / 2;
 

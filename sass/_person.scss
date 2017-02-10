@@ -32,8 +32,8 @@
   position: relative;
   .person__avatar {
     img {
-      width: $avatar-size - 1.25;
-      height: $avatar-size - 1.25;
+      width: 4em;
+      height: 4em;
       @media (max-width: $breakpoint) {
         width: 17vw;
         height: 17vw;
