@@ -27,8 +27,7 @@ class App {
   getData(callback) {
     $.ajax({
       url: this.requestUrl,
-      type: 'POST',
-      data: `path=${this.spreadsheetPath}`,
+      type: 'GET',
       dataType: 'json',
       success: (data) => {
         if (callback) callback(data);
@@ -44,7 +43,7 @@ class App {
 
     for (let i = 0; i < data.length; i += 1) {
       const thisDepart = this.a.toLowerCase();
-      const newDepart = data[i].a.toLowerCase();
+      const newDepart = data[i].departamento.toLowerCase();
 
       if (thisDepart === newDepart) {
         thisdata.push(data[i]);
@@ -63,9 +62,10 @@ class App {
     for (let i = 0; i < data.length; i += 1) {
       const item = data[i];
 
-      item.PartidoEscaped = item.j.replace(/ /g, '');
-      let budgetWidth = item.c;
-      budgetWidth = budgetWidth.replace('$', '').replace('"', '');
+      item.PartidoEscaped = item.partido.replace(/ /g, '');
+      // console.log(item);
+      let budgetWidth = item.presupuestoDeInversion;
+      // budgetWidth = budgetWidth.replace('$', '').replace('"', '');
       budgetWidth = (budgetWidth / 1000000000) * 1.25;
       if (budgetWidth < 35) budgetWidth = 35;
       const halfBudgetWidth = budgetWidth / 2;
@@ -75,8 +75,8 @@ class App {
 
       item.itterator = i;
 
-      if (item.f === '') item.f = './images/avatars/undefined.jpg';
-      if (item.i === '') item.i = './images/avatars/undefined.jpg';
+      if (item.fotoDeLaCabeza === '') item.fotoDeLaCabeza = './images/avatars/undefined.jpg';
+      if (item.fotoDelPadrino === '') item.fotoDelPadrino = './images/avatars/undefined.jpg';
     }
 
     const context = {
@@ -128,7 +128,7 @@ class App {
           open = true;
 
           self.showContent(ref, defaultColumnWidth);
-          popup.create(data.l);
+          popup.create(data.parrafo);
         } else {
           open = false;
 
