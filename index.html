@@ -1,292 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Rayos X al Clientelismo</title>
-  <link rel="stylesheet" type="text/css" href="dist/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Rayos X al Clientelismo</title>
+    <link rel="stylesheet" type="text/css" href="dist/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <main class="container">
 
-  <div class="legend">
-    <ul class="legend__list">
-      <li class="legend__item"><span style="background-color: #464646"></span> Sin definir</li>
-      <li class="legend__item"><span style="background-color: #f6b217"></span> Unidad Nacional</li>
-      <li class="legend__item"><span style="background-color: #904091"></span> Cambio Radical</li>
-      <li class="legend__item"><span style="background-color: #cd2843"></span> Liberal</li>
-      <li class="legend__item"><span style="background-color: #b5805d"></span> Opción Ciudadana</li>
-      <li class="legend__item"><span style="background-color: #1c7b8d"></span> Alianza Social Independiente</li>
-      <li class="legend__item"><span style="background-color: rgb(66, 211, 182);"></span> Moviento de Integración
-        Regional
-      </li>
-      <li class="legend__item"><span style="background-color: rgb(166, 209, 100);"></span>Compromiso Ciudadano</li>
-      <li class="legend__item"><span style="background-color: #00537f"></span> Conservador</li>
-    </ul>
-  </div>
-  <div class="table-layout">
-
-    <div id="padrinos" class="row">
-      <div class="row__column loading row__column--title">
-        <h2 class="row__title">Cargando visualización...</h2>
-      </div>
+    <div class="legend">
+        <ul class="legend__list">
+            <li class="legend__item"><span style="background-color: #464646"></span> Sin definir</li>
+            <li class="legend__item"><span style="background-color: #f6b217"></span> Unidad Nacional</li>
+            <li class="legend__item"><span style="background-color: #904091"></span> Cambio Radical</li>
+            <li class="legend__item"><span style="background-color: #cd2843"></span> Liberal</li>
+            <li class="legend__item"><span style="background-color: #b5805d"></span> Opción Ciudadana</li>
+            <li class="legend__item"><span style="background-color: #1c7b8d"></span> Alianza Social Independiente</li>
+            <li class="legend__item"><span style="background-color: rgb(66, 211, 182);"></span> Moviento de Integración Regional</li>
+            <li class="legend__item"><span style="background-color: rgb(166, 209, 100);"></span>Compromiso Ciudadano</li>
+            <li class="legend__item"><span style="background-color: #00537f"></span> Conservador</li>
+        </ul>
     </div>
+    <div class="table-layout">
 
-    <div id="cabezas" class="row"></div>
+        <div id="padrinos" class="row">
+            <div class="row__column loading row__column--title">
+                <h2 class="row__title">Cargando visualización...</h2>
+            </div>
+        </div>
 
-    <div id="presupuests" class="row row--line-below"></div>
+        <div id="cabezas" class="row"></div>
 
-    <div id="destinations" class="row"></div>
+        <div id="presupuests" class="row row--line-below"></div>
 
-    <div class="content content--hidden">
-      <header class="content__header">
-        <h2 style="opacity: 0; visibility: hidden">La historia</h2>
-        <button id="close__content" class="content__close-button">
-          <svg class="closebtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-            <defs>
-              <style>
-                .a {
-                  fill: #464646;
-                }
+        <div id="destinations" class="row"></div>
 
-                .closebtn:hover .a {
-                  fill: #b5805d;
-                }
-              </style>
-            </defs>
-            <path class="a"
-                  d="M17.45,6.84,12.5,11.79,7.55,6.84l-.71.71,4.95,4.95L6.84,17.45l.71.71,4.95-4.95,4.95,4.95.71-.71L13.21,12.5l4.95-4.95Z"></path>
-            <path class="a"
-                  d="M12.5,0A12.5,12.5,0,1,0,25,12.5,12.5,12.5,0,0,0,12.5,0Zm0,24A11.5,11.5,0,1,1,24,12.5,11.53,11.53,0,0,1,12.5,24Z"></path>
-          </svg>
-        </button>
-      </header>
-      <div class="content__inner"></div>
+        <div class="content content--hidden">
+            <header class="content__header">
+                <h2 style="opacity: 0; visibility: hidden">La historia</h2>
+                <button id="close__content" class="content__close-button">
+                    <svg class="closebtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                        <defs>
+                            <style>
+                                .a {
+                                    fill: #464646;
+                                }
+
+                                .closebtn:hover .a {
+                                    fill: #b5805d;
+                                }
+                            </style>
+                        </defs>
+                        <path class="a"
+                              d="M17.45,6.84,12.5,11.79,7.55,6.84l-.71.71,4.95,4.95L6.84,17.45l.71.71,4.95-4.95,4.95,4.95.71-.71L13.21,12.5l4.95-4.95Z"></path>
+                        <path class="a"
+                              d="M12.5,0A12.5,12.5,0,1,0,25,12.5,12.5,12.5,0,0,0,12.5,0Zm0,24A11.5,11.5,0,1,1,24,12.5,11.53,11.53,0,0,1,12.5,24Z"></path>
+                    </svg>
+                </button>
+            </header>
+            <div class="content__inner"></div>
+        </div>
     </div>
-  </div>
 </main>
 <footer class="footer">
-  <a href="http://lasillavacia.com/cuotas-politicas-en-las-regiones" class="cta-btn">Vea nuestro especial sobre las
-    cuotas políticas en las regiones</a>
+<a href="http://lasillavacia.com/cuotas-politicas-en-las-regiones" target="_parent" class="cta-btn">Vea nuestro especial sobre las cuotas políticas en las regiones</a>
 </footer>
 
 <script id="padrino-template" type="text/x-handlebars-template">
-  <div class="row__column row__column--title">
-    <h2 class="row__title">Padrino</h2>
-  </div>
-  {{#each items}}
-  <div class="row__column person person--width-arrow" data-ref="{{ itterator  }}">
-    <div class="column__inner">
-      <figure class="person__avatar">
-        <img src="{{ fotoDelPadrino }}" width="100" alt="{{ g }}"/>
-      </figure>
-      <h3 class="person__name">{{ padrino }}</h3>
-      <p class="person__function">{{ cargoDelPadrino }}</p>
+    <div class="row__column row__column--title">
+        <h2 class="row__title">Padrino</h2>
     </div>
-  </div>
-  {{/each}}
+    {{#each items}}
+    <div class="row__column person person--width-arrow" data-ref="{{ itterator  }}">
+        <div class="column__inner">
+            <figure class="person__avatar">
+                <img src="{{ fotoDelPadrino }}" width="100" alt="{{ g }}"/>
+            </figure>
+            <h3 class="person__name">{{ padrino }}</h3>
+            <p class="person__function">{{ cargoDelPadrino }}</p>
+        </div>
+    </div>
+    {{/each}}
 </script>
 
 <script id="cabezas-template" type="text/x-handlebars-template">
-  <div class="row__column row__column--title">
-    <h2 class="row__title">Cabeza <br>de la entidad</h2>
-  </div>
-  {{#each items}}
-  <div class="row__column person person--small" data-ref="{{ itterator  }}">
-    <div class="column__inner">
-      <figure class="person__avatar">
-        <img src="{{ fotoDeLaCabeza }}" width="100" alt="{{e}}"/>
-      </figure>
-      <h3 class="person__name">{{ nombreDeLaCabeza }}</h3>
-      <p class="person__function">{{ cargoDeLaCabeza }}</p>
+    <div class="row__column row__column--title">
+        <h2 class="row__title">Cabeza <br>de la entidad</h2>
     </div>
-  </div>
-  {{/each}}
+    {{#each items}}
+    <div class="row__column person person--small" data-ref="{{ itterator  }}">
+        <div class="column__inner">
+            <figure class="person__avatar">
+                <img src="{{ fotoDeLaCabeza }}" width="100" alt="{{e}}"/>
+            </figure>
+            <h3 class="person__name">{{ nombreDeLaCabeza }}</h3>
+            <p class="person__function">{{ cargoDeLaCabeza }}</p>
+        </div>
+    </div>
+    {{/each}}
 </script>
 
 <script id="presupuests-template" type="text/x-handlebars-template">
-  <div class="row__column row__column--title">
-    <h2 class="row__title">Presupuesto <br>de inversión</h2>
-  </div>
-  {{#each items}}
-  <div class="row__column column--line-center budget color--{{PartidoEscaped}}"
-       style="color: {{ colorPartido }}; min-height: {{halfBudgetWidth}}px"
-       data-ref="{{ itterator  }}">
-    <div class="column__inner">
-      {{#if presupuestoDeInversion}}
-      <div class="budget__circle"></div>
-      <div class="budget__spend"
-           style="width: {{BudgetWidth}}px; height: {{halfBudgetWidth}}px; border-radius: {{BudgetWidth}}px {{BudgetWidth}}px 0 0;"></div>
-      {{/if}}
+    <div class="row__column row__column--title">
+        <h2 class="row__title">Presupuesto <br>de inversión</h2>
     </div>
-  </div>
-  {{/each}}
+    {{#each items}}
+    <div class="row__column column--line-center budget color--{{PartidoEscaped}}"
+         style="color: {{ colorPartido }}; min-height: {{halfBudgetWidth}}px"
+         data-ref="{{ itterator  }}">
+        <div class="column__inner">
+            {{#if presupuestoDeInversion}}
+            <div class="budget__circle"></div>
+            <div class="budget__spend"
+                 style="width: {{BudgetWidth}}px; height: {{halfBudgetWidth}}px; border-radius: {{BudgetWidth}}px {{BudgetWidth}}px 0 0;"></div>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
 </script>
 
 <script id="destinations-template" type="text/x-handlebars-template">
-  <div class="row__column row__column--title">
-    <h2 class="row__title visually-hidden">Entidad</h2>
-  </div>
-  {{#each items}}
-  <div class="row__column destination" data-ref="{{ itterator  }}">
-    <div class="column__inner">
-      <figure class="destination__brand color--{{PartidoEscaped}}" style="color: {{ colorPartido }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.53 49.16">
-          <defs>
-            <style>.b {
-              fill: currentColor;
-              }
-            </style>
-            <
-            /
-            defs >
-            < path class
-
-            =
-            "b"
-            d
-
-            =
-            "M20,48.69,1.78,38.17A3.55,3.55,0,0,1,0,35.1v-21A3.55,3.55,0,0,1,1.78,11L20,.48a3.55,3.55,0,0,1,3.55,0L41.75,11a3.55,3.55,0,0,1,1.78,3.08v21a3.55,3.55,0,0,1-1.78,3.08L23.54,48.69A3.55,3.55,0,0,1,20,48.69Z"
-            >
-            <
-            /
-            path >
-            <
-
-            /
-            svg > {
-
-            {
-              #if logo
-            }
-            }
-            <
-            img src
-
-            =
-            "{{ logo }}"
-            width
-
-            =
-            "50"
-            alt
-
-            =
-            "{{ entidad }}"
-            >
-            {
-            {
-              else
-            }
-            }
-            <
-            span class
-
-            =
-            "img--fallback"
-            >
-            {
-            {
-              entidad
-            }
-            }
-            <
-            /
-            span > {
-
-            {
-            /
-            if
-            }
-            }
-            <
-            /
-            figure >
-            < p class
-
-            =
-            "destination__title"
-            >
-            {
-            {
-              entidad
-            }
-            }
-            <
-            /
-            p >
-            < span class
-
-            =
-            "destination__amound"
-            >
-            {
-            {
-              #if presupuestoDeInversion
-            }
-            }
-            {
-            {
-              formatCurrency presupuestoDeInversion
-            }
-            }
-            <
-            br > millones {
-
-            {
-              else
-            }
-            }
-            Sin definir {
-
-            {
-            /
-            if
-            }
-            }
-            <
-            /
-            span >
-            <
-
-            /
-            div >
-            <
-
-            /
-            div > {
-
-            {
-            /
-            each
-            }
-            }
-            <
-            /
-            script >
-            < script src
-
-            =
-            "https://cdn.rawgit.com/showdownjs/showdown/1.6.4/dist/showdown.min.js"
-            >
-            <
-            /
-            script >
-            < script src
-
-            =
-            "dist/bundle.js"
-            >
-            <
-            /
-            script >
-            <
-
-            /
-            body >
-            <
-
-            /
-            html >
+    <div class="row__column row__column--title">
+        <h2 class="row__title visually-hidden">Entidad</h2>
+    </div>
+    {{#each items}}
+    <div class="row__column destination" data-ref="{{ itterator  }}">
+        <div class="column__inner">
+            <figure class="destination__brand color--{{PartidoEscaped}}" style="color: {{ colorPartido }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.53 49.16">
+                    <defs>
+                        <style>.b {
+                            fill: currentColor;
+                        }</style>
+                    </defs>
+                    <path class="b"
+                          d="M20,48.69,1.78,38.17A3.55,3.55,0,0,1,0,35.1v-21A3.55,3.55,0,0,1,1.78,11L20,.48a3.55,3.55,0,0,1,3.55,0L41.75,11a3.55,3.55,0,0,1,1.78,3.08v21a3.55,3.55,0,0,1-1.78,3.08L23.54,48.69A3.55,3.55,0,0,1,20,48.69Z"></path>
+                </svg>
+                {{#if logo}}
+                <img src="{{ logo }}" width="50" alt="{{ entidad }}">
+                {{else}}
+                <span class="img--fallback">{{ entidad }}</span>
+                {{/if}}
+            </figure>
+            <p class="destination__title">{{ entidad }}</p>
+            <span class="destination__amound">
+            {{#if presupuestoDeInversion}}
+            {{formatCurrency presupuestoDeInversion}} <br> millones
+            {{else}}
+            Sin definir
+            {{/if}}
+            </span>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.6.4/dist/showdown.min.js"></script>
+<script src="dist/bundle.js"></script>
+</body>
+</html>
