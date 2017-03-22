@@ -3,7 +3,6 @@ const $ = require('jquery');
 const Handlebars = require('handlebars');
 const Popup = require('./_popup.es6');
 const c = require('./_config.es6');
-
 const popup = new Popup();
 
 class App {
