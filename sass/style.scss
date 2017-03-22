@@ -245,3 +245,33 @@ figure {
 .loading h2 {
   padding-left: 2rem;
 }
+
+.footer {
+  text-align: center;
+}
+
+.cta-btn {
+  padding: 5px 10px;
+  border: 1px solid #F6B224;
+  border-radius: 3px;
+  display: inline-block;
+  color: #F6B224;
+  text-decoration: none;
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+.cta-btn::after {
+  content: '→';
+  display: inline-block;
+  margin-left: .5em;
+  transition: .3s;
+}
+
+.cta-btn:hover {
+  background: #F6B224;
+  color: #fff;
+}
+.cta-btn:hover::after {
+  margin-left: 1em;
+}
